@@ -11,7 +11,7 @@ const App = () => {
         <>
             <Header />
             <main>
-                <Forgot />
+                <Login />
             </main>
             <Footer />
         </>
