@@ -1,5 +1,6 @@
 import React from "react"
 import './forgot.css'
+import { Link } from 'react-router-dom';
 
 const Forgot = () => {
     return (
@@ -14,8 +15,8 @@ const Forgot = () => {
                 </div>
             </div>
             <div className="additional-actions d-flex justify-content-center">
-                <a href="#" className="signin-account">Войти в аккаунт</a>
-                <a href="#" className="create-account">Создать аккаунт</a>
+                <Link to="/login" className="signin-account">Войти в аккаунт</Link>
+                <Link to="/register" className="create-account">Создать аккаунт</Link>
             </div>
         </form>
     )

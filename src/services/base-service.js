@@ -1,13 +1,20 @@
+import axios from "axios";
+
 export default class BaseService {
 
-    _apiBase = process.env.REACT_APP_SWAPI_SERVICE;
+    _apiBase = process.env.REACT_APP_AUTH_API_SERVICE;
 
-    async getResource(url) {
-        const res = await fetch(`${this._apiBase}${url}`);
-
-        if (!res.ok) {
-            throw new Error(`Could not fetch: ${url}. Received: ${res.status}`);
+    async sendAsync( url, data ) {
+        const fullUrl = `${ this._apiBase }${ url }`
+        const axiosHeaders = {
+            headers: { 'Content-Type': 'application/json' }
         }
-        return await res.json();
+        return await axios.post(
+            fullUrl, data, axiosHeaders
+        );
+    }
+
+    async getAsync( url, data ) {
+        return await axios.get( url );
     }
 }

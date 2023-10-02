@@ -27,3 +27,12 @@ form {
 .signin-account {
     margin-left: 10px;
 }
+
+.field-valid-tooltip {
+    display: block;
+    background-color: #5a7295;
+    font-size: 14px;
+    color: #fefefe;
+    padding: 2px 5px;
+    border-radius: 5px;
+}
