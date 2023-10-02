@@ -1,5 +1,6 @@
 import React from "react"
 import './login.css'
+import { Link } from 'react-router-dom';
 
 const Login = () => {
     return (
@@ -17,8 +18,8 @@ const Login = () => {
                 </div>
             </div>
             <div className="additional-actions d-flex justify-content-center">
-                <a href="#" className="forgot-password">Забыли пароль?</a>
-                <a href="#" className="create-account">Создать аккаунт</a>
+                <Link to="/forgot" className="forgot-password">Забыли пароль?</Link>
+                <Link to="/register" className="create-account">Создать аккаунт</Link>
             </div>
         </form>
     )
