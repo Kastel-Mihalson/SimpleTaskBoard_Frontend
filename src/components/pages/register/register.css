@@ -36,3 +36,10 @@ form {
     padding: 2px 5px;
     border-radius: 5px;
 }
+
+.success-register-message {
+    color: lightseagreen;
+}
+.error-register-message {
+    color: tomato;
+}
