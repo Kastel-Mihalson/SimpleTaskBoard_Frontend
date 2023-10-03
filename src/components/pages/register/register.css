@@ -37,6 +37,14 @@ form {
     border-radius: 5px;
 }
 
+.success-register-message,
+.error-register-message {
+    display: block;
+    font-weight: bold;
+    text-align: center;
+    margin: 10px 0;
+}
+
 .success-register-message {
     color: lightseagreen;
 }

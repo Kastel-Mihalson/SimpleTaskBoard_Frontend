@@ -13,8 +13,4 @@ export default class BaseService {
             fullUrl, data, axiosHeaders
         );
     }
-
-    async getAsync( url, data ) {
-        return await axios.get( url );
-    }
 }

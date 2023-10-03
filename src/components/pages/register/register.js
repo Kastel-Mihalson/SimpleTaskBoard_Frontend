@@ -87,7 +87,7 @@ const Register = () => {
     const onRegister = async ( event ) => {
         event.preventDefault()
 
-        setIsEnabled( false )
+        setIsLoading( true )
 
         const data = JSON.stringify({ 
             Email: email, 
@@ -95,21 +95,21 @@ const Register = () => {
             Password: pass 
         })
         try {
-            setIsLoading( true )
             const response = await service.registerUser( data );
             setSuccess( true )
         }
         catch ( ex ) {
-            setIsLoading( false )
             setSuccess( false )
             setMessage( !ex?.response ? 'No server response' : `${ ex.response.data }` );
         }
+
+        setIsLoading( false )
     }
 
     return (
         <>
         <form method="post" onSubmit={ onRegister } >
-            <h3 className="text-center pb-3">Регистрация</h3>
+            <h3 className="text-center pb-1">Регистрация</h3>
             { success && <span className="success-register-message">User successfully created!</span> }
             { !success && message && <span className="error-register-message">{ message }</span> }
             <div className="form-group mb-2">
@@ -118,6 +118,7 @@ const Register = () => {
                     className="form-control" 
                     placeholder="Name" 
                     required="required"
+                    autoComplete="off"
                     onChange={ ( event ) => setName( event.target.value ) } />
                 { 
                     !isNameValid && name &&
@@ -133,6 +134,7 @@ const Register = () => {
                     className="form-control" 
                     placeholder="Email" 
                     required="required"
+                    autoComplete="off"
                     onChange={ ( e ) => setEmail( e.target.value ) } />
                 { 
                     !isEmailValid && email &&
@@ -147,6 +149,7 @@ const Register = () => {
                     className="form-control" 
                     placeholder="Password" 
                     required="required"
+                    autoComplete="off"
                     onChange={ ( e ) => setPass( e.target.value ) } />
                 { 
                     !isPassValid && pass &&
@@ -162,6 +165,7 @@ const Register = () => {
                     className="form-control" 
                     placeholder="Confirm password" 
                     required="required"
+                    autoComplete="off"
                     onChange={ ( e ) => setMatchPass( e.target.value ) } />
                 { 
                     !isValidMatch && matchPass &&
